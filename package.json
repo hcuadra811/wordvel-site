@@ -1,0 +1,21 @@
+{
+  "name": "wordvel-site",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/preview.mjs",
+    "wordvel:sync": "wordvel-bridge sync ./wordvel.config.mjs"
+  },
+  "dependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "^5.8.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "lucide-react": "^0.468.0",
+    "@wordvel/bridge": "file:../wordvel_bridge"
+  },
+  "devDependencies": {}
+}
