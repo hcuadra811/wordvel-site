@@ -14,7 +14,7 @@ npm run preview
 npm run wordvel:sync
 ```
 
-The preview sync command uses `@wordvel/bridge` from the sibling `../wordvel_bridge` package and sends editor preview HTML/CSS to the WordVel Laravel API.
+The preview sync command uses `@wordvel/typescript` from the sibling `../wordvel-typescript` package and sends editor preview HTML/CSS to the WordVel Laravel API.
 
 ## Local API Assumptions
 
