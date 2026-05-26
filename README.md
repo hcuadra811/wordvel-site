@@ -14,7 +14,7 @@ npm run preview
 npm run wordvel:sync
 ```
 
-The preview sync command uses `@wordvel/typescript` from the sibling `../wordvel-typescript` package and sends editor preview HTML/CSS to the WordVel Laravel API.
+The preview sync command uses `@wordvel/react` from the sibling `../wordvel-react` package. The React adapter renders block components to preview HTML, delegates shared SDK work to `../wordvel-typescript`, and sends the artifact to the WordVel Laravel API.
 
 ## Local API Assumptions
 
