@@ -156,6 +156,24 @@ a {
   line-height: 1.6;
 }
 
+/* Subtle loading state — prevents the giant hero title font from being used for "Loading..." */
+.api-state.loading {
+  min-height: 200px;
+  padding: 120px 0 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.api-state.loading .loading-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
 .eyebrow {
   margin: 0 0 16px;
   color: var(--accent-dark);

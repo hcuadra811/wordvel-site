@@ -1,29 +1,23 @@
-const API_BASE_URL = 'http://wordvel-api.test/api/v1';
+/**
+ * WordVel site specific setup.
+ *
+ * Thin wrapper that provides a pre-configured client using this site's
+ * WordVel API base URL. All actual functionality comes from @wordvel/react.
+ *
+ * Follows the same pattern as the bruno_cortina site.
+ */
 
-export async function fetchSite() {
-  return fetchWordVelResource('site', 'site payload');
-}
+import { createWordVelClient, fetchSite as sdkFetchSite, fetchPage as sdkFetchPage } from "@wordvel/react";
 
-export async function fetchPage(slug) {
-  return fetchWordVelResource(`pages/${slug}`, 'page payload');
-}
+const API_BASE = "http://wordvel-api.test/api/v1";
 
-async function fetchWordVelResource(path, label) {
-  const response = await fetch(`${API_BASE_URL}/${path}`, {
-    headers: {
-      Accept: 'application/json',
-    },
-  });
+export const wordvelClient = createWordVelClient({
+  baseUrl: API_BASE,
+});
 
-  if (!response.ok) {
-    throw new Error(`WordVel API returned ${response.status}`);
-  }
-
-  const payload = await response.json();
-
-  if (!payload.status || !payload.data) {
-    throw new Error(`WordVel API returned an empty ${label}`);
-  }
-
-  return payload.data;
-}
+/**
+ * Convenience re-exports for this site (matching the previous custom API surface).
+ * These delegate to the official SDK implementations.
+ */
+export const fetchSite = () => sdkFetchSite({ baseUrl: API_BASE });
+export const fetchPage = (slug) => sdkFetchPage({ baseUrl: API_BASE }, slug);
